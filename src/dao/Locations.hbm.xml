@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dao">
+  <class name="Locations">
+    	<id name="locid" type="string" column="locid">
+  		<generator class="uuid" />
+  	</id>
+  	<property name="elecid" column="elecid" not-null="true" type="string" />
+  	<property name="constituency" column="constituency" not-null="true" type="long" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="blogDAO"
+        class="dao.BlogDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="warduserDAO"
+        class="dao.WardUserDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="wardidDAO"
+        class="dao.WardIdDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="likesDAO"
+        class="dao.LikesDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="commentsDAO"
+        class="dao.CommentsDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="resultDAO"
+        class="dao.ResultDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+    <bean id="userDAO"
+        class="dao.UserDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+      <bean id="electionDAO"
+        class="dao.ElectionDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>    
+     <bean id="locationDAO"
+        class="dao.LocationsDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>    
+     <bean id="requestForPartyDAO"
+        class="dao.RequestForPartyDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="partyDAO"
+        class="dao.PartyDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="requestDAO"
+        class="dao.RequestDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="requestForVoterIdDAO"
+        class="dao.RequestForVoterIdDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+      <bean id="voteDAO"
+        class="dao.VoteDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     <bean id="voterDAO"
+        class="dao.VoterIdDAO" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+     </bean>
+     
+     <!-- Start Rohit's changes -->
+      <bean id="requestForCandidatureDAO"
+     		class="dao.ReqForCandidatureDAO">
+     	<property name="sessionFactory">
+     		<ref bean="sessionFactory"></ref>
+     	</property>
+     </bean>
+     <bean id="RequestForPartyHeadDAO"
+     		class="dao.RequestForPartyHeadDAO">
+     	<property name="sessionFactory">
+     		<ref bean="sessionFactory"></ref>
+     	</property>
+     </bean>
+     
+     <bean id="requestForCandidatureWardDAO" class="dao.ReqForCandidatureWardDAO">
+     	<property name="sessionFactory">
+     		<ref bean="sessionFactory"></ref>
+     	</property>     
+     </bean>
+     
+     <bean id="candidateDAO" class="dao.CandidateDAO">
+     	<property name="sessionFactory">
+     		<ref bean="sessionFactory"></ref>
+     	</property>
+     </bean>
+     <!-- End of Rohit -->
+
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="mappingResources">
+            <list>
+                <value>dao/User.hbm.xml</value>            
+                <value>dao/WardID.hbm.xml</value>
+                <value>dao/Request.hbm.xml</value>
+                <value>dao/VoterId.hbm.xml</value>
+                <value>dao/FileInfo.hbm.xml</value>
+                <value>dao/FileContent.hbm.xml</value>
+                <value>dao/RequestForVoterId.hbm.xml</value>
+                <value>dao/WardUser.hbm.xml</value>
+                <value>dao/Party.hbm.xml</value>
+                <value>dao/RequestForParty.hbm.xml</value>
+                <value>dao/Election.hbm.xml</value>
+                <value>dao/Locations.hbm.xml</value>
+                <value>dao/Vote.hbm.xml</value>
+                <value>dao/Blog.hbm.xml</value>
+                <value>dao/Likes.hbm.xml</value>
+                <value>dao/Comments.hbm.xml</value>
+                <value>dao/Result.hbm.xml</value>
+                <value>dao/VoteRatio.hbm.xml</value>
+                <!-- Rohit's changes -->
+                <value>dao/RequestForPartyHead.hbm.xml</value>
+                <value>dao/ReqForCandidature.hbm.xml</value>
+                <value>dao/ReqForCandidatureWard.hbm.xml</value>
+                <value>dao/Candidate.hbm.xml</value>
+                <!-- End of Rohit -->
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/ipoll</prop>
+                <prop key="hibernate.connection.username">root</prop>
+                <prop key="hibernate.connection.password">root</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+        </bean>
+    <bean id="hibernateTemplate"
+        class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    
+    <bean id="txProxyFactory" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="true">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="transactionAttributeSource">
+            <ref bean="attributeSource"/>
+        </property>
+    </bean>
+</beans>

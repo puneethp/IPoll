@@ -1,0 +1,129 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="loginServ" class="service.UserServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="userDAO" />
+		</property>
+	</bean>
+	<bean id="userServ" class="service.UserServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="userDAO" />
+		</property>
+		<property name="wudao" >
+			<ref bean="warduserDAO" />
+		</property>
+	</bean>
+	<bean id="blogServ" class="service.BlogServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="blogDAO" />
+		</property>
+		<property name="cdao" >
+			<ref bean="commentsDAO" />
+		</property>
+		<property name="ldao" >
+			<ref bean="likesDAO" />
+		</property>
+	</bean>
+	<bean id="wardidServ" class="service.WardIdServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="wardidDAO" />
+		</property>
+	</bean>
+	<bean id="RegVoterIdServ" class="service.VoterIdServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="voterDAO" />
+		</property>
+		<property name="rdao" >
+			<ref bean="requestForVoterIdDAO" />
+		</property>
+	</bean>
+	<bean id="ElectionServ" class="service.ElectionServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="electionDAO" />
+		</property>
+		<property name="rdao" >
+			<ref bean="resultDAO" />
+		</property>
+	</bean>
+	<bean id="PartyServ" class="service.PartyServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="partyDAO" />
+		</property>
+		<property name="rfpdao" >
+			<ref bean="requestForPartyDAO" />
+		</property>
+		<property name="udao" >
+			<ref bean="userDAO" />
+		</property>
+	</bean>
+	<bean id="voteServ" class="service.VoterServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="voteDAO" />
+		</property>
+		<property name="edao" >
+			<ref bean="electionDAO" />
+		</property>
+		<property name="ldao" >
+			<ref bean="locationDAO" />
+		</property>
+		<property name="vdao" >
+			<ref bean="voterDAO" />
+		</property>
+		<property name="cdao" >
+			<ref bean="candidateDAO" />
+		</property>
+	</bean>
+	<bean id="requestServ" class="service.RequestServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="requestDAO" />
+		</property>
+		<property name="rfvdao" >
+			<ref bean="requestForVoterIdDAO" />
+		</property>
+		<property name="rfpdao">
+			<ref bean="requestForPartyDAO" />
+		</property>
+		<!-- Rohit's changes -->
+		<property name="rfcdao">
+			<ref bean="requestForCandidatureDAO" />
+		</property>
+		<property name="rfcwdao">
+			<ref bean="requestForCandidatureWardDAO" />
+		</property>
+		<property name="cdao">
+			<ref bean="candidateDAO" />
+		</property>
+		<property name="rfphdao">
+			<ref bean="RequestForPartyHeadDAO" /> 
+		</property>
+		<!-- End of changes -->
+	</bean>
+	<!-- Start of Rohit -->
+	<bean id="candidateServ" class="service.CandidateServ" scope="prototype">
+		<property name="dao" >
+			<ref bean="candidateDAO" />
+		</property>
+		<property name="vdao" >
+			<ref bean="voterDAO" />
+		</property>
+		<property name="rcdao" >
+			<ref bean="requestForCandidatureDAO" />
+		</property>
+		<property name="rwdao" >
+			<ref bean="requestForCandidatureWardDAO" />
+		</property>
+		<property name="udao" >
+			<ref bean="userDAO" />
+		</property>
+		<property name="pdao" >
+			<ref bean="partyDAO" />
+		</property>
+		<property name="rfphdao">
+			<ref bean="RequestForPartyHeadDAO" />
+		</property>
+	</bean>
+	
+	<!-- End of Rohit -->
+</beans>

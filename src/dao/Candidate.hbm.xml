@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dao">
+  <class name="Candidate">
+  	<id name="user" column="userid" type="string">
+  		<generator class="assigned" />
+  	</id>
+  	<property name="constituency" column="constituency" type="long" not-null="true" />
+  	<property name="symbol" column="symbol" type="string" not-null="true" />
+  	<property name="voterId" column="voterid" type="string" not-null="true" />
+  	<property name="validity" column="validity" type="int" not-null="true" />
+  	<property name="dateOfEffect" column="dateOfEffect" type="timestamp" not-null="false" />
+  	<property name="representingParty" column="representingParty" type="string" not-null="false" />
+  	<property name="partyType" column="partyType" type="int" not-null="false" />
+  	<property name="candidate1" column="candidate1" type="string" not-null="false" />
+  	<property name="candidate2" column="candidate2" type="string" not-null="false" />
+  	<property name="candidate3" column="candidate3" type="string" not-null="false" />
+  	<property name="candidate4" column="candidate4" type="string" not-null="false" />
+  	<property name="candidate5" column="candidate5" type="string" not-null="false" />
+  	<property name="candidate6" column="candidate6" type="string" not-null="false" />
+  	<property name="candidate7" column="candidate7" type="string" not-null="false" />
+  	<property name="candidate8" column="candidate8" type="string" not-null="false" />
+  	<property name="candidate9" column="candidate9" type="string" not-null="false" />
+  	<property name="candidate10" column="candidate10" type="string" not-null="false" />
+  </class>
+</hibernate-mapping>

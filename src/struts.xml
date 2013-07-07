@@ -1,0 +1,399 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd" >
+
+<struts>
+<constant name="struts.multipart.maxSize" value="120970000" />
+	<package name="defalut" extends="struts-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<action name="home" class="processPage">
+			<result name="nLoggedIn" type="tiles">home</result>
+			<result name="loggedIn" type="tiles">postLoginHome</result>
+			<result name="error" type="tiles">preerror</result>
+		</action>
+		<action name="welcome" class="processAction">
+			<result name="nLoggedIn" type="tiles">welcome</result>
+			<result name="loggedIn" type="tiles">postLoginHome</result>
+		</action>
+		<action name="blog" class="processAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="loggedIn" type="tiles">postLoginBlogCreate</result>
+		</action>
+		<action name="viewblog" class="viewBlogAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="loggedIn" type="tiles">postLoginBlogCreate</result>
+		</action>
+		<action name="viewmyblog" class="viewMyBlogAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="loggedIn" type="tiles">postLoginBlogCreate</result>
+		</action>
+		<action name="register" class="processAction">
+			<result name="nLoggedIn" type="tiles">register</result>
+			<result name="loggedIn" type="tiles">postLoginHome</result>
+		</action>
+		<action name="viewElections" class="viewElectionsAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="view" type="tiles">viewElections</result>
+		</action>
+		<action name="EditPage" class="EditPageAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="view" type="tiles">viewEditPage</result>
+		</action>
+		<action name="commitPage" class="CommitPageAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="done" type="tiles">confirmReg</result>
+		</action>
+		<action name="ReqWardUserVoterId" class="processWardUserAction">
+			<result name="loggedIn" type="tiles">viewWardUserVoterIdPage</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="viewElection" class="viewElectionAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="view" type="tiles">viewElection</result>
+		</action>
+		<action name="addWardUser" class="AddWardUserAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="view" type="tiles">confirmReg</result>
+		</action>
+		<action name="myVote" class="MyVoteAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="done" type="tiles">confirmReg</result>
+		</action>
+		<action name="addWard" class="AddWardAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="view" type="tiles">viewWardId</result>
+		</action>
+		<action name="ReqAddWard" class="processAdminAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="loggedIn" type="tiles">addWard</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="viewResultElection" class="ViewResultElectionAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="view" type="tiles">viewElectionResult</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="viewResults" class="ViewResultAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="view" type="tiles">viewElectionResults</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="resultElection" class="ResultElectionAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="ReqAddWardUser" class="processAdminAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="loggedIn" type="tiles">addWardUser</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="commentBlog" class="commentBlogAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="view" type="tiles">viewblog</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="ReqWardUserVote" class="processWardUserAction">
+			<result name="loggedIn" type="tiles">addphyvote</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="WardUserReqVotePage" class="WardUserVoteReqAction">
+			<result name="view" type="tiles">viewWardUserVoteReqPage</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="WardUserVote" class="WardUserVoteAction">
+			<result name="view" type="tiles">viewWardUserVotePage</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="WardUserProxyVote" class="WardUserProxyVoteAction">
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="viewBlog" class="viewABlogAction">
+			<result name="view" type="tiles">viewblog</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="createBlog" class="createBlogAction">
+			<result name="view" type="tiles">viewblog</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="myblogs" class="myBlogsAction">
+			<result name="view" type="tiles">viewblogs</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="viewBlogs" class="blogsAction">
+			<result name="view" type="tiles">viewblogs</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="news" class="processPage">
+			<result name="nLoggedIn" type="tiles">news</result>
+			<result name="loggedIn" type="tiles">postLoginNews</result>
+			<result name="error" type="tiles">preerror</result>
+		</action>
+		<action name="help" class="processPage">
+			<result name="nLoggedIn" type="tiles">help</result>
+			<result name="loggedIn" type="tiles">postLoginHelp</result>
+			<result name="error" type="tiles">preerror</result>
+		</action>
+		<action name="voteridReg" class="voteridReqRegAction">
+			<result name="loggedIn" type="tiles">voteridReg</result>
+			<result name="exist" type="tiles">viewvoterid</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="reqvote" class="reqVoteAction">
+			<result name="view" type="tiles">reqVote</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="voterId" type="tiles">voteridReg</result>
+		</action>
+		<action name="ReqVotePage" class="reqVotePageAction">
+			<result name="view" type="tiles">reqVotePage</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="voterId" type="tiles">voteridReg</result>
+		</action>
+		<action name="updateVoterIdReg" class="voteridReqRegAction">
+			<result name="loggedIn" type="tiles">voteridReg</result>
+			<result name="exist" type="tiles">editVoterId</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="updateCandidatureReg" class="CandidateReqReg">
+			<result name="register" type="tiles">candidatureReg</result>
+			<result name="exist" type="tiles">editCandidate</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="regVoterIdb4Candidate" type="tiles">voteridReg</result>
+		</action>
+		<action name="updatePartyReg" class="partyReqRegAction">
+			<result name="loggedIn" type="tiles">partyReg</result>
+			<result name="exist" type="tiles">editParty</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="verifyVoterIdStatus" class="verifyVoterIdStatusAction">
+			<result name="view" type="tiles">viewVerifyVoterId</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="login" class="processAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="loggedIn" type="tiles">postLoginHome</result>
+		</action>
+		
+		<action name="createElection" class="processAdminAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+			<result name="loggedIn" type="tiles">createElectionForm</result>
+		</action>
+		<action name="logmein" class="loginAction">
+			<result name="Home" type="tiles">postLoginHome</result>
+			<result name="error" type="tiles">login</result>
+		</action>
+		<action name="logout" class="logoutAction">
+			<result name="login" type="tiles">login</result>
+		</action>
+		<action name="regUser" class="registerAction">
+			<result name="done" type="tiles">confirmRegUser</result>
+			<result name="inputError" type="tiles">register</result>
+		</action>
+		<action name="" class="processAction">
+			<result name="nLoggedIn" type="tiles">postLoginHome</result>
+			<result name="loggedIn" type="tiles">home</result>
+		</action>
+		<action name="partyReqReg" class="partyReqRegAction">
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="exist" type="tiles">viewParty</result>
+			<result name="loggedIn" type="tiles">partyReg</result>
+		</action>
+		<action name="verifyVoterIdWardUser" class="viewVerifyVoterId">
+			<result name="view" type="tiles">viewVerifyVoterId</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="requestForVoterIdWardUser" class="requestForVoterIdWardUserAction">
+			<result name="view" type="tiles">warduservoteridrequest</result>
+			<result name="noAuthority" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="verifyPartyAdmin" class="viewVerifyParty">
+			<result name="view" type="tiles">viewVerifyParty</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="verifyPartyReg" class="VerifyParty">
+			<result name="view" type="tiles">viewVerifyParty</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="requestForPartyAdmin" class="requestForPartyAdminAction">
+			<result name="view" type="tiles">viewRequestForPartyAdmin</result>
+			<result name="noAuthority" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="regVoterId" class="voterIdAction">
+			<interceptor-ref name="fileUpload">
+			     <param name="maximumSize">20000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="exist" type="tiles">viewvoterid</result>
+			<result name="error" type="tiles">voteridReg</result>
+			<result name="login" type="tiles">login</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="regVoterIdWardUser" class="WardUserAddVoterIdAction">
+			<interceptor-ref name="fileUpload">
+			     <param name="maximumSize">20000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="exist" type="tiles">viewvoterid</result>
+			<result name="error" type="tiles">viewWardUserVoterIdPage</result>
+			<result name="login" type="tiles">login</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="updateVoterId" class="updateVoterIdAction">
+			<interceptor-ref name="fileUpload">
+			     <param name="maximumSize">20000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="nexist" type="tiles">voteridReg</result>
+			<result name="error" type="tiles">voteridReg</result>
+			<result name="login" type="tiles">login</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="partyReg" class="partyRegAction">
+			<interceptor-ref name="fileUpload">
+			     <param name="maximumSize">20000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="nexist" type="tiles">partyReg</result>
+			<result name="exist" type="tiles">viewParty</result>
+			<result name="error" type="tiles">partyReg</result>
+			<result name="login" type="tiles">login</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="updateParty" class="updatePartyAction">
+			<interceptor-ref name="fileUpload">
+			     <param name="maximumSize">20000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="nexist" type="tiles">partyReg</result>
+			<result name="error" type="tiles">partyReg</result>
+			<result name="login" type="tiles">login</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="regElection" class="RegElection">
+			<result name="error" type="tiles">error</result>
+			<result name="login" type="tiles">login</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="done" type="tiles">confirmReg</result>
+		</action>
+		<!-- Start Rohit -->
+		<action name="viewCandidateAction" class="viewCandidateAction">
+			<result name="view" type="tiles">viewCandidatureToCandidate</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		
+		<action name="viewCandidatureWardAction" class="viewCandidatureWardAction">
+			<result name="view" type="tiles">viewCandidatureToWard</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		
+		<action name="ViewCandidatePartyHead" class="ViewCandidatePartyHead">
+			<result name="view" type="tiles">viewCandidatureToPartyHead</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		
+		<action name="candidatureRegReqAction" class="candidateRegReqAction">
+			<result name="register" type="tiles">candidatureReg</result>
+			<result name="exist" type="tiles">viewCandidate</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="regVoterIdb4Candidate" type="tiles">voteridReg</result>
+		</action>
+		<action name="verifyCandidatureStatus" class="verifyCandidatureStatus">
+			<result name="view" type="tiles">viewCandidatureToWard</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="ReqForCandidatureWardUser" class="ReqForCandidatureWardUser">
+			<result name="view" type="tiles">viewCandidateReqWardUser</result>
+			<result name="noAuthority" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		
+		<action name="ReqForCandidatureToCandidate" class="ReqForCandidatureToCandidate">
+			<result name="view" type="tiles">viewCandidatureReqToCandidate</result>
+			<result name="noAuthority" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="verifyCandidatureWardUser" class="ReqForCandidatureWardUser">
+			<result name="view" type="tiles">reqForCandidatureWardUser</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		
+		<action name="VerifyCandidatureStatusCandidate" class="VerifyCandidatureStatusCandidate">
+			<result name="view" type="tiles">viewCandidate</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="VerifyCandidatureStatusPartyHead" class="VerifyCandidatureStatusPartyHead">
+			<result name="view" type="tiles">viewCandidatureToPartyHead</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		
+		<action name="candidateReg" class="candidatureReg">
+			<interceptor-ref name="fileUpload">
+			     <param name="maximumSize">20000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="exist" type="tiles">viewCandidate</result>
+			<result name="error" type="tiles">error</result>
+			<result name="login" type="tiles">login</result>
+		</action>
+		<action name="UpdateCandidatureAction" class="UpdateCandidatureAction">
+			<interceptor-ref name="fileUpload">
+			     <param name="maximumSize">20000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="done" type="tiles">confirmReg</result>
+			<result name="exist" type="tiles">viewCandidate</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<action name="viewReqToPartyHead" class="viewReqToPartyHead">
+			<result name="view" type="tiles">viewCandidatureReqToPartyHead</result>
+			<result name="noAuthority" type="tiles">error</result>
+			<result name="error" type="tiles">error</result>
+			<result name="nLoggedIn" type="tiles">login</result>
+		</action>
+		<!-- end Rohit -->
+	</package>
+</struts>

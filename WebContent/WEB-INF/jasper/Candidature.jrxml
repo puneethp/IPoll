@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Candidature" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a709a34-8ef2-4e1a-bc75-a16c37a64371">
+	<import value="static net.sf.jasperreports.expressions.functions.DateTimeFunctions.*"/>
+	<parameter name="userid" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select *,candidate.validity as v4candidate from voterid,candidate where voterid.id = candidate.userid and userid='$P!{userid}']]>
+	</queryString>
+	<field name="v4candidate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="voterid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="surname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sex" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dob" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fathersname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="currAdd" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="wardid" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="currwardno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="currcity" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="currstate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="imagefileid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="relid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pobAdd" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="validity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="effectivefrom" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="validatedby" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="userid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="constituency" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dateOfEffect" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="representingParty" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="symbol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="partyType" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate3" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate4" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate5" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate6" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate7" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate8" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate9" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="candidate10" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4c706473-4fbb-4163-a0cd-6d20f39d6846" x="304" y="0" width="250" height="30"/>
+				<textElement textAlignment="Right">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}+" "+$F{surname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d0a495d7-38f8-4ea1-8462-ad0a4f3d1f12" x="304" y="30" width="251" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["s/o "+$F{fathersname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a4759d02-a69a-4122-bea6-b4e5fe4aab8d" x="304" y="50" width="251" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{currAdd}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="fff8a342-71ab-4aa9-8067-8dd84c559a2d" x="0" y="0" width="110" height="111"/>
+				<box padding="3">
+					<topPen lineWidth="0.5" lineStyle="Double"/>
+					<leftPen lineWidth="0.5" lineStyle="Double"/>
+					<bottomPen lineWidth="0.5" lineStyle="Double"/>
+					<rightPen lineWidth="0.5" lineStyle="Double"/>
+				</box>
+				<imageExpression><![CDATA["http://localhost:8080/IPoll/File?fileid="+$F{imagefileid}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="e0fb0783-2320-4d9b-9a85-7f088018678e" x="304" y="70" width="250" height="25"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{currcity}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="67" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="8f11466b-1566-48b6-b958-1e16f99b58af" x="-1" y="17" width="556" height="3" forecolor="#FEFFFE" backcolor="#999999"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="168e70e2-3f5f-47dc-80dd-784612a9f040" x="0" y="30" width="140" height="30"/>
+				<textElement>
+					<font size="19"/>
+				</textElement>
+				<text><![CDATA[Candidature]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="16ac110a-cf3a-413c-a7d9-fb50aacaa237" x="304" y="37" width="250" height="30"/>
+				<textElement textAlignment="Right">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{validity}==2?"Valid":"InValid"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="72" splitType="Stretch">
+			<image>
+				<reportElement uuid="a365838f-4106-497f-ac36-2fa850810bab" x="29" y="11" width="50" height="50"/>
+				<imageExpression><![CDATA["http://localhost:8080/IPoll/File?fileid="+$F{symbol}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="b541298f-5d7d-4db8-acd5-4f0fdb9d7252" x="303" y="0" width="251" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{partyType} == 1 ? $F{representingParty} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="32496c65-4cfc-4a69-89f9-cfc9e5c51c6f" x="303" y="20" width="251" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{wardid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="4108c275-91ef-4826-97a5-34262fe28036" x="434" y="0" width="120" height="125"/>
+				<jr:DataMatrix xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$F{voterid}]]></jr:codeExpression>
+				</jr:DataMatrix>
+			</componentElement>
+			<staticText>
+				<reportElement uuid="3cc9fe9c-c2f3-4154-ad42-836ab353a4e1" x="-1" y="0" width="111" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Birth]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8b97d27d-ef57-4060-9bb5-f7d152d637e5" x="110" y="0" width="270" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[DATEFORMAT($F{dob},"d M y")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="bc760326-9c2c-4cc9-9908-16d607f6888e" x="-1" y="20" width="111" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sex]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="0f0143d6-2ff3-4714-a4dc-1f74a89ff5da" x="110" y="20" width="270" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sex}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="46c8ba1a-af3d-4c5d-b90e-9c1c5e4f56e8" x="111" y="40" width="269" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pobAdd}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8a899395-dba4-4c3e-a23a-30598d8043aa" x="0" y="40" width="111" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Place of Birth]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b0426754-e3f1-4b3f-9106-0fc47c5b473e" x="111" y="60" width="269" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{currwardno}+", "+$F{currcity}+", "+$F{currstate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2a675e8b-0493-43b4-8fa7-58e247f9eb25" x="0" y="60" width="111" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ward]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7173d2fc-b138-4735-847b-422858d2bcbe" x="111" y="80" width="269" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{voterid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d1f6a5f2-58d7-431c-a719-ae166e49e5fe" x="0" y="80" width="111" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VoterId]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="54bc869f-361c-4c83-8c00-86ce786ff055" x="111" y="100" width="269" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{validity}==2?"Valid":"InValid"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0c214fb6-370d-448c-b58d-5ab62ea6e52d" x="0" y="100" width="111" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

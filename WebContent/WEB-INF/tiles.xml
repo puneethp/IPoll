@@ -1,0 +1,185 @@
+<!DOCTYPE tiles-definitions PUBLIC    "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/jsp/baseLayout.jsp">
+         <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+         <put-attribute name="right" value="/WEB-INF/jsp/ad.jsp" />
+         <put-attribute name="headNavigation" value="/WEB-INF/jsp/header.jsp" />
+         <put-attribute name="postLoginHeader" value="" />
+	</definition>
+	<definition name="welcomeLayout" template="/WEB-INF/jsp/welcomelayout.jsp">
+         <put-attribute name="headNavigation" value="/WEB-INF/jsp/header.jsp" />
+	</definition>
+	<definition name="logged" extends="baseLayout">
+		<put-attribute name="menu" value="/WEB-INF/jsp/postLoginMenu.jsp"/>
+		<put-attribute name="postLoginHeader" value="/WEB-INF/jsp/postLoginContentHeader.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/ad.jsp"/>
+		<put-attribute name="headNavigation" value="/WEB-INF/jsp/header.jsp"/>
+	</definition>
+	<definition name="viewWardUserVoterIdPage" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/VoterIdWardUser.jsp"/>
+	</definition>
+	<definition name="postLoginHome" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/postLoginHome.jsp"/>
+	</definition>
+	<definition name="voteridReg" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/postLoginRegisterVoterId.jsp"/>
+	</definition>
+	<definition name="viewEditPage" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/editPage.jsp"/>
+	</definition>
+	<definition name="postLoginNews" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/content.jsp" />
+	</definition>
+	<definition name="postLoginHelp" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/content.jsp" />
+	</definition>
+	<definition name="createElectionForm" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/AdminCreateElection.jsp"/>
+	</definition>
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/content.jsp" />
+	</definition>
+	<definition name="welcome" extends="welcomeLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/welcome.html" />
+	</definition>
+	<definition name="preerror" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/content.jsp" />
+	</definition>
+	<definition name="addWard" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/addWardId.jsp" />
+	</definition>
+	<definition name="viewWardId" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewWardId.jsp" />
+	</definition>
+	<definition name="confirmRegUser" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/confirmReg.jsp" />
+	</definition>
+	<definition name="addWardUser" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/postLoginWardUserAdd.jsp" />
+	</definition>
+	<definition name="viewParty" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewParty.jsp" />
+	</definition>
+	<definition name="viewElections" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/electionList.jsp" />
+	</definition>
+	<definition name="viewElectionResults" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/resultElectionList.jsp" />
+	</definition>
+	<definition name="viewWardUserVotePage" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/WardUserVote.jsp" />
+	</definition>
+	<definition name="viewElectionResult" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/ViewResult.jsp" />
+	</definition>
+	<definition name="viewElection" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewElection.jsp" />
+	</definition>
+	<definition name="partyReg" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/postloginRegisterParty.jsp" />
+	</definition>
+	<definition name="register" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/registerUser.jsp" />
+	</definition>
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+	<definition name="news" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/content.jsp" />
+	</definition>
+	<definition name="help" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/jsp/content.jsp" />
+	</definition>
+	<definition name="confirmReg" extends="logged">
+		<put-attribute name="content" value="Done !!!" />
+	</definition>
+	<definition name="viewvoterid" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewvoterid.jsp" />
+	</definition>
+	<definition name="viewVerifyVoterId" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewVoterIdWardUser.jsp" />
+	</definition>
+	<definition name="warduservoteridrequest" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/warduservoteridrequest.jsp" />
+	</definition>
+	<definition name="error" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/postLoginError.jsp" />
+	</definition>
+	<definition name="viewRequestForPartyAdmin" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewPartyRequestAdmin.jsp" />
+	</definition>
+	<definition name="editCandidate" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/UpdateCandidature.jsp" />
+	</definition>
+	<definition name="editVoterId" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/postLoginVoterIdUpdate.jsp" />
+	</definition>
+	<definition name="editParty" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/updateParty.jsp" />
+	</definition>
+	<definition name="viewVerifyParty" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewVerifyParty.jsp" />
+	</definition>
+	<definition name="postLoginBlogCreate" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/createBlog.jsp" />
+	</definition>
+	<definition name="reqVote" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/ReqVote.jsp" />
+	</definition>
+	<definition name="addphyvote" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/AddPhyVote.jsp" />
+	</definition>
+	<definition name="viewWardUserVoteReqPage" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/WardUserVoteReqPage.jsp" />
+	</definition>
+	<definition name="reqVotePage" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/vote.jsp" />
+	</definition>
+	<definition name="viewblogs" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewBlogs.jsp" />
+	</definition>
+	<definition name="viewblog" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewBlog.jsp" />
+	</definition>
+	<!-- Rohit's changes -->
+	
+	<definition name="candidatureReg" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/postLoginCandidateReg.jsp"/>
+	</definition>
+	<definition name="viewVerifyCandidatureWard" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidate.jsp" />
+	</definition>
+	<definition name="viewCandidateReqWardUser" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidateReqWardUser.jsp" />
+	</definition>
+	<definition name="viewCandidatureReqToCandidate" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidatureReqToCandidate.jsp" />
+	</definition>
+	
+	<definition name="viewCandidatureReqToPartyHead" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidatureReqToPartyHead.jsp" />
+	</definition>
+	<definition name="viewCandidate" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidate.jsp" />
+	</definition>
+	<definition name="reqForCandidatureWardUser" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidatureWardUser.jsp" />
+	</definition>
+	
+	<definition name="viewCandidatureToCandidate" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidatureToCandidate.jsp" />
+	</definition>
+	
+	<definition name="viewCandidatureToWard" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidatureToWard.jsp" />
+	</definition>
+	<definition name="ViewCandidatePartyHead" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidatureToPartyHead.jsp" />
+	</definition>
+	<definition name="viewCandidatureToPartyHead" extends="logged">
+		<put-attribute name="content" value="/WEB-INF/jsp/viewCandidatureToPartyHead.jsp" />
+	</definition>
+	
+	
+	<!-- End of Rohit -->
+</tiles-definitions>

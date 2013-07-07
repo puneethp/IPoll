@@ -1,0 +1,285 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="processAction" class="action.Process" scope="prototype">
+	</bean>
+	<bean id="processPage" class="action.processPage" scope="prototype">
+	</bean>
+	<bean id="EditPageAction" class="action.EditHtmlAction" scope="prototype">
+	</bean>
+	<bean id="CommitPageAction" class="action.WriteHtmlAction" scope="prototype">
+	</bean>
+	<bean id="processAdminAction" class="action.ProcessAdmin" scope="prototype">
+	</bean>
+	<bean id="processWardUserAction" class="action.ProcessWardUser" scope="prototype">
+	</bean>
+	<bean id="WardUserVoteAction" class="action.WardUserVoteAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="voteServ"/>
+		</property>
+	</bean>
+	<bean id="WardUserVoteReqAction" class="action.WardUserVoteReqPage" scope="prototype">
+		<property name="serv" >
+			<ref bean="voteServ"/>
+		</property>
+	</bean>
+	
+	<bean id="WardUserAddVoterIdAction" class="action.WardUserAddVoterId" scope="prototype">
+		<property name="serv" >
+			<ref bean="RegVoterIdServ"/>
+		</property>
+	</bean>
+	<bean id="WardUserProxyVoteAction" class="action.WardUserProxyVoteAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="voteServ"/>
+		</property>
+	</bean>
+	<bean id="loginAction" class="action.LoginAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="loginServ"/>
+		</property>
+	</bean>
+	<bean id="ViewResultAction" class="action.ViewDoneElectionsAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="ElectionServ"/>
+		</property>
+	</bean>
+	<bean id="ViewResultElectionAction" class="action.ViewElectionResultAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="ElectionServ"/>
+		</property>
+	</bean>
+	<bean id="viewElectionsAction" class="action.ViewElectionsAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="ElectionServ"/>
+		</property>
+	</bean>
+	<bean id="viewElectionAction" class="action.ViewElectionAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="ElectionServ"/>
+		</property>
+	</bean>
+	<bean id="AddWardUserAction" class="action.AddWardUserAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="userServ"/>
+		</property>
+	</bean>
+	<bean id="AddWardAction" class="action.AddWardAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="wardidServ"/>
+		</property>
+	</bean>
+	<bean id="myBlogsAction" class="action.viewMyBlogAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="blogServ"/>
+		</property>
+	</bean>
+	<bean id="MyVoteAction" class="action.MyVoteAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="voteServ"/>
+		</property>
+	</bean>
+	<bean id="ResultElectionAction" class="action.ResultElectionAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="ElectionServ"/>
+		</property>
+	</bean>
+	<bean id="createBlogAction" class="action.CreateBlogAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="blogServ"/>
+		</property>
+	</bean>
+	<bean id="blogsAction" class="action.viewBlogAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="blogServ"/>
+		</property>
+	</bean>
+	<bean id="commentBlogAction" class="action.CommentAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="blogServ"/>
+		</property>
+	</bean>
+	<bean id="viewABlogAction" class="action.ViewABlogAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="blogServ"/>
+		</property>
+	</bean>
+	<bean id="reqVoteAction" class="action.ReqVoteAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="voteServ"/>
+		</property>
+	</bean>
+	<bean id="reqVotePageAction" class="action.ReqVotePageAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="voteServ"/>
+		</property>
+	</bean>
+	<!-- Start of Rohit -->
+	<bean id="ReqForCandidatureWardUser" class="action.ReqForCandidatureWardUser" scope="prototype">
+		<property name="serv" >
+			<ref bean="requestServ"/>
+		</property>
+	</bean>
+	<bean id="ReqForCandidatureToCandidate" class="action.ReqForCandidatureToCandidate" scope="prototype">
+		<property name="serv" >
+			<ref bean="requestServ"/>
+		</property>
+	</bean>
+	<bean id="candidatureReg" class="action.CandidateReg" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+	</bean>
+	
+	<bean id="candidateRegReqAction" class="action.CandidateRegReqAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+	</bean>
+	<bean id="verifyCandidatureStatus" class="action.verifyCandidatureStatus" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+	</bean>
+	<bean id="VerifyCandidatureStatusCandidate" class="action.VerifyCandidatureStatusCandidate" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+	</bean>
+	<bean id="VerifyCandidatureStatusPartyHead" class="action.VerifyCandidatureStatusPartyHead" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+	</bean>
+	<bean id="viewCandidate" class="action.CandidateRegReqAction" scope="prototype" >
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+	</bean>
+	
+	<bean id="viewCandidateAction" class="action.viewCandidateAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+		
+	</bean>
+	<bean id="ViewCandidatePartyHead" class="action.ViewCandidatePartyHead" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+		
+	</bean>
+	
+	<bean id="CandidateReqReg" class="action.CandidateRegReqAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+		
+	</bean>
+	
+	<bean id="viewCandidatureWardAction" class="action.viewCandidatureWardAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>
+	</bean>
+	
+	<bean id="UpdateCandidatureAction" class="action.UpdateCandidatureAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="candidateServ"/>
+		</property>	
+	</bean>
+	
+	<bean id="viewReqToPartyHead" class="action.viewReqToPartyHead" scope="prototype">
+		<property name="serv" >
+			<ref bean="requestServ"/>
+		</property>	
+	</bean>
+	<!-- End of Rohit -->
+	<bean id="verifyVoterIdStatusAction" class="action.VoterIdStatusAction" scope="prototype" >
+		<property name="serv" >
+			<ref bean="RegVoterIdServ"/>
+		</property>
+	</bean>
+	<bean id="viewVerifyVoterId" class="action.veiwVerifyVoterIdAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="RegVoterIdServ"/>
+		</property>
+	</bean>
+	
+	<bean id="requestForPartyAdminAction" class="action.RequestForPartyAdmin" scope="prototype">
+		<property name="serv" >
+			<ref bean="requestServ"/>
+		</property>
+	</bean>
+	<bean id="requestForVoterIdWardUserAction" class="action.RequestForVoterIdWardUserAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="requestServ"/>
+		</property>
+	</bean>
+	<bean id="voteridReqRegAction" class="action.VoterRegReqAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="RegVoterIdServ"/>
+		</property>
+	</bean>
+	<bean id="logoutAction" class="action.LogoutAction" scope="prototype">
+	    <property name="serv" >
+	        <ref bean="userServ"/>
+	    </property>
+	</bean>
+	<bean id="updateVoterIdAction" class="action.UpdateVoterIdAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="RegVoterIdServ"/>
+		</property>
+	</bean>
+	<bean id="voterIdAction" class="action.VoterIdRegAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="RegVoterIdServ"/>
+		</property>
+	</bean>
+	<bean id="viewVerifyParty" class="action.ViewVerifyPartyAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="PartyServ"/>
+		</property>
+	</bean>
+	<bean id="updatePartyAction" class="action.UpdatePartRegAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="PartyServ"/>
+		</property>
+	</bean>
+	<bean id="VerifyParty" class="action.VerifyParty" scope="prototype">
+		<property name="serv" >
+			<ref bean="PartyServ"/>
+		</property>
+	</bean>
+	<bean id="partyRegAction" class="action.PartyRegAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="PartyServ"/>
+		</property>
+	</bean>
+	<bean id="RegElection" class="action.ElectionRegAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="ElectionServ"/>
+		</property>
+	</bean>
+	<bean id="partyReqRegAction" class="action.PartyReqRegAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="PartyServ"/>
+		</property>
+	</bean>
+	<bean id="registerAction" class="action.RegisterAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="loginServ"/>
+		</property>
+	</bean>
+	<bean id="viewBlogAction" class="action.viewBlogAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="blogServ"/>
+		</property>
+	</bean>
+	<bean id="viewMyBlogAction" class="action.viewMyBlogAction" scope="prototype">
+		<property name="serv" >
+			<ref bean="blogServ"/>
+		</property>
+	</bean>
+</beans>

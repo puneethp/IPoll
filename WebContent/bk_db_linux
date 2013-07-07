@@ -1,0 +1,41 @@
+create table User(	id varchar(35) PRIMARY KEY NOT NULL,	password varchar(35) NOT NULL,	createdOn timestamp NOT NULL,	lastLogin timestamp NOT NULL,	type varchar(20) NOT NULL,	language varchar(25) NOT NULL,	email varchar(40) NOT NULL,	validity smallint NOT NULL)
+
+insert into user(id,password,createdOn,lastLogin,type,language,email,validity) values('puneethp','poduri',current timestamp,current timestamp,'Normal','EN-US','puneeth.poduri@gmail.com',1)
+insert into user(id,password,createdOn,lastLogin,type,language,email,validity) values('191BangKarAdmin','pass',current timestamp,current timestamp,'WardUser','EN-US','puneeth.poduri@gmail.com',1)
+insert into user(id,password,createdOn,lastLogin,type,language,email,validity) values('admin','pass',current timestamp,current timestamp,'Admin','EN-US','puneeth.poduri@gmail.com',1)
+
+create table FileInfo(	fileId varchar(33) PRIMARY KEY NOT NULL,	fileName varchar(30) NOT NULL,	disc varchar(30) NOT NULL,	uploadedBy varchar(35),	FOREIGN KEY(uploadedBy) REFERENCES User(id) ON DELETE SET NULL)
+create table FileContent(	fileId varchar(33) PRIMARY KEY NOT NULL,	file blob(30M) NOT NULL,	FOREIGN KEY(fileId) REFERENCES FileInfo(fileId))
+
+create table WardID(	wardid bigint PRIMARY KEY NOT NULL,	state varchar(35) NOT NULL,	city varchar(35) NOT NULL,	wardno varchar(30) NOT NULL,	UNIQUE (state,city,wardno))
+insert into wardid(wardid,state,city,wardno) values(10,'karnatka','bangalore',191)
+create table WardUser(	id varchar(35) PRIMARY KEY NOT NULL,	wardid bigint UNIQUE NOT NULL,	FOREIGN KEY(id) REFERENCES user(id) ,	FOREIGN KEY(wardid) REFERENCES WardId(wardid))
+insert into warduser(id,wardid) values('191BangKarAdmin',10)
+
+create table Request(	reqId bigint PRIMARY KEY NOT NULL,	reqtype varchar(20) NOT NULL,	reqquestion varchar(300) NOT NULL,	reqstatus varchar(20) NOT NULL,	reqtime timestamp NOT NULL,	reqserv timestamp ,	id varchar(35) ,	FOREIGN KEY(id) REFERENCES User(id))
+
+create table VoterId(	voterid varchar(33) PRIMARY KEY NOT NULL,	id varchar(35) ,	name varchar(30) NOT NULL,	surname varchar(30) NOT NULL,	sex varchar(20) NOT NULL,	dob timestamp NOT NULL,	fathersname varchar(30) NOT NULL,	currAdd varchar(110) NOT NULL,	wardid bigint,	currwardno varchar(20) NOT NULL,	currcity varchar(30) NOT NULL,	currstate varchar(30) NOT NULL,	imagefileid varchar(33) NOT NULL,	relid varchar(33),	pobAdd varchar(110) NOT NULL,	validity smallint NOT NULL,	effectivefrom timestamp,	validatedby varchar(35),	FOREIGN KEY(id) REFERENCES user(id) ON DELETE SET NULL,	FOREIGN KEY(wardid) REFERENCES wardid(wardid) ON DELETE SET NULL,	FOREIGN KEY(imagefileid) REFERENCES fileinfo(fileid),	FOREIGN KEY(validatedby) REFERENCES user(id) ON DELETE SET NULL)
+
+
+create table RequestForVoterId(	reqid bigint PRIMARY KEY NOT NULL,	voterid varchar(33) NOT NULL,	FOREIGN KEY(reqid) REFERENCES request(reqid) ,	FOREIGN KEY(voterid) REFERENCES voterid(voterid))
+CREATE TABLE Candidate(	userid varchar(35) PRIMARY KEY NOT NULL,	constituency bigint NOT NULL,	voterid varchar(35) NOT NULL,	validity int NOT NULL,	dateOfEffect timestamp,	representingParty varchar(35),	symbol varchar(35) NOT NULL,	partyType int NOT NULL,	candidate1 varchar(35),	candidate2 varchar(35),	candidate3 varchar(35),	candidate4 varchar(35),	candidate5 varchar(35),	candidate6 varchar(35),	candidate7 varchar(35),	candidate8 varchar(35),	candidate9 varchar(35),	candidate10 varchar(35),	FOREIGN KEY(userid) REFERENCES User(id),	FOREIGN KEY(voterid) REFERENCES VoterId(voterid),	FOREIGN KEY(candidate1) REFERENCES User(id),	FOREIGN KEY(candidate2) REFERENCES User(id),	FOREIGN KEY(candidate3) REFERENCES User(id),	FOREIGN KEY(candidate4) REFERENCES User(id),	FOREIGN KEY(candidate5) REFERENCES User(id),	FOREIGN KEY(candidate6) REFERENCES User(id),	FOREIGN KEY(candidate7) REFERENCES User(id),	FOREIGN KEY(candidate8) REFERENCES User(id),	FOREIGN KEY(candidate9) REFERENCES User(id),	FOREIGN KEY(candidate10) REFERENCES User(id),	FOREIGN KEY(symbol) REFERENCES FileInfo(fileId))
+
+CREATE TABLE ReqForCandidature(	reqId bigint PRIMARY KEY NOT NULL,	candidateid varchar(35) NOT NULL,	FOREIGN KEY(reqId) REFERENCES Request(reqId),	FOREIGN KEY(candidateid) REFERENCES User(id))
+CREATE TABLE ReqForCandidatureWard(	reqId bigint PRIMARY KEY NOT NULL,	candidateid varchar(35) NOT NULL,	FOREIGN KEY(reqId) REFERENCES Request(reqId),	FOREIGN KEY(candidateid) REFERENCES User(id))
+
+
+CREATE TABLE Party(	partyname varchar(35) PRIMARY KEY NOT NULL,	head varchar(35) NOT NULL UNIQUE,	symbol varchar(33) NOT NULL,	validity int NOT NULL,	FOREIGN KEY(head) REFERENCES User(id),	FOREIGN KEY(symbol) REFERENCES FileInfo(fileId))
+CREATE TABLE RequestForParty(	reqid bigint PRIMARY KEY NOT NULL,	head varchar(35) NOT NULL,	FOREIGN KEY(reqid) REFERENCES Request(reqId),	FOREIGN KEY(head) REFERENCES User(id))
+CREATE TABLE RequestForPartyHead(reqid bigint PRIMARY KEY NOT NULL,	candidateid varchar(35) NOT NULL,	FOREIGN KEY(reqid) REFERENCES Request(reqId),	FOREIGN KEY(candidateid) REFERENCES user(id))
+
+
+CREATE TABLE Election(	elecid varchar(35) PRIMARY KEY NOT NULL,	start timestamp NOT NULL,	end timestamp NOT NULL,	validity int NOT NULL,	title varchar(30))
+CREATE TABLE Locations(	locid varchar(35) PRIMARY KEY NOT NULL,	elecid varchar(35) NOT NULL,	constituency bigint NOT NULL,	FOREIGN KEY(constituency) REFERENCES WardId(wardid))
+
+CREATE TABLE Vote(	voteid varchar(35) PRIMARY KEY NOT NULL,	constituency bigint NOT NULL,	candidateid varchar(35) NOT NULL,	voterid varchar(35) NOT NULL,	user varchar(35),	elecid varchar(35) NOT NULL,	FOREIGN KEY(voterid) REFERENCES VoterId(voterid),	FOREIGN KEY(user) REFERENCES User(id),	FOREIGN KEY(candidateid) REFERENCES User(id),	FOREIGN KEY(constituency) REFERENCES WardId(wardid),	FOREIGN KEY(elecid) REFERENCES Election(elecid), UNIQUE(elecid,voterid))
+
+CREATE TABLE Blog(	blog_id varchar(35) PRIMARY KEY NOT NULL,	title varchar(40) NOT NULL,	post varchar(2000) NOT NULL,	user varchar(35) NOT NULL,	date timestamp,	views bigint NOT NULL,	FOREIGN KEY(user) REFERENCES User(id))
+CREATE TABLE Comments(	commentid varchar(35) PRIMARY KEY NOT NULL,	blog_id varchar(35) NOT NULL,	comment varchar(500) NOT NULL,	user varchar(35) NOT NULL,	date timestamp NOT NULL,	FOREIGN KEY(user) REFERENCES User(id),	FOREIGN KEY(blog_id) REFERENCES Blog(blog_id))
+CREATE TABLE Likes(	likes_id varchar(35) PRIMARY KEY NOT NULL,	blog_id varchar(35) NOT NULL,	user varchar(35) NOT NULL,	likes bigint NOT NULL,	UNIQUE (blog_id,user),	FOREIGN KEY(user) REFERENCES User(id),	FOREIGN KEY(blog_id) REFERENCES Blog(blog_id))
+
+CREATE TABLE Result(	resultid varchar(35) PRIMARY KEY NOT NULL,	elecid varchar(35) NOT NULL,	candidate varchar(35),	constituency bigint NOT NULL,	FOREIGN KEY(elecid) REFERENCES Election(elecid),	FOREIGN KEY(constituency) REFERENCES WardId(wardid))

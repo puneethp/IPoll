@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dao">
+  <class name="VoteRatio">
+    <id name="resultid" type="string" column="resultid">
+  		<generator class="assigned" />
+  	</id>
+  	<property name="candidateid" column="candidateid" not-null="true" type="string" />
+  	<property name="elecid" column="elecid" not-null="true" type="string" />
+  	<property name="votes" column="votes" not-null="true" type="big_integer" />
+  </class>
+</hibernate-mapping>
